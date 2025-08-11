@@ -30,3 +30,16 @@ jobs:
          tags: tag:ci
          args: --advertise-exit-node=true
          version: latest
+      - name: adas
+        run: |
+          echo "Starting task at $(date)"
+          count=1
+          max_minutes=59  
+          end_time=$(( $(date +%s) + max_minutes * 60 ))
+
+          while [ $(date +%s) -lt $end_time ]; do
+            echo "Loop iteration: $count - Current time: $(date)"
+            count=$((count + 1))
+            sleep 10
+          done
+          echo "Reached maximum runtime"
