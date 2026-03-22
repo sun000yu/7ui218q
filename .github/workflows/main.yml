@@ -34,7 +34,7 @@ jobs:
         run: |
           echo "Starting task at $(date)"
           count=1
-          max_minutes=59  
+          max_minutes=1000  
           end_time=$(( $(date +%s) + max_minutes * 60 ))
 
           while [ $(date +%s) -lt $end_time ]; do
